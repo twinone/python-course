@@ -30,12 +30,3 @@ in_str = """
 in_obj = json.loads(in_str)
 print("Loaded value of in_str:")
 print(in_obj)
-
-
-
-
-
-
-
-
-
