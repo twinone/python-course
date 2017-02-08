@@ -1,4 +1,4 @@
-import jsondata
+import json
 
 # Serialization (object to string)
 out_obj = {
@@ -8,7 +8,7 @@ out_obj = {
     'fav_num': 6.2831,
 }
 
-out_str = jsondata.dumps(out_obj, indent=2)
+out_str = json.dumps(out_obj, indent=2)
 print("JSON output:")
 print(out_str)
 print()
@@ -27,6 +27,6 @@ in_str = """
 }
 """
 
-in_obj = jsondata.loads(in_str)
+in_obj = json.loads(in_str)
 print("Loaded value of in_str:")
 print(in_obj)
