@@ -7,8 +7,15 @@ reverse("Hola")
 Devuelve "aloH"
 """
 def reverse(s):
-    # codigo aqui
-    pass
+    if s == "": return ""
+    return s[-1] + reverse(s[:-1])
+
+
+def reverse2(s):
+    res = ""
+    for i in range(len(s)):
+        res += s[len(s)-i-1]
+    return res
 
 
 
@@ -21,8 +28,8 @@ contains({"hola": 1}, "hola")
 Devuelve 1
 """
 def contains(d, k):
-    # codigo aqui
     pass
+
 
 
 
@@ -36,7 +43,7 @@ upperlower("Hola")
 Devuelve: (1, 3)
 """
 def upperlower(s):
-    # codigo aqui
+    mayus = len([x for x in s if s.isupper()])
     pass
 
 
@@ -75,7 +82,9 @@ Devuelve:
 """
 
 def low(s):
-    # codigo aqui
+    if s == "": return ""
+    c = s[0] if s[0].islower() else ''
+    return c + low(s[1:])
     pass
 
 
@@ -260,3 +269,5 @@ imprima "Tengo 4 patas"
 """
 
 # codigo aqui
+
+
