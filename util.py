@@ -22,6 +22,7 @@ TEMPLATE = """<html><body style="margin:0"><iframe src="{0}" style="position:fix
 
 def maps(a, b, filename="index.html", autoopen=True):
     """Generate a google maps with the route from a to b"""
+
     url = BASE_URL.format(a, b)
     text = TEMPLATE.format(url)
     with open(filename, "w") as text_file:
@@ -29,5 +30,7 @@ def maps(a, b, filename="index.html", autoopen=True):
     if autoopen:
         webbrowser.open("./"+filename)
 
+def tuplestring(t):
+    (a, b) = t
+    return str(a) + str(b)
 
-maps("41.397952,2.1800420", "41.39553,2.17706")
