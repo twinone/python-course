@@ -15,15 +15,19 @@ def read_coordinates():
     Ejemplo:
     get_coordinates() => (41.387453, 2.113686), (41.403618, 2.174361)
     """
-
     print("Introduce coordenadas de origen")
-    # 1. Leer coordenadas de origen. Si hay algun error hay que usar COORDS_CAMPUS_NORD
+    try:
+        src = [float(x) for x in sys.stdin.readline().split(",")]
+    except:
+        src = COORDS_CAMPUS_NORD
 
     print("Introduce coordenadas de destino")
-    # 2. Leer coordenadas de destino. Si hay algun error hay que usar COORDS_SAFA
+    try:
+        dst = [float(x) for x in sys.stdin.readline().split(",")]
+    except:
+        dst = COORDS_SAFA
+    return src, dst
 
-    # 3. Devolver el resultado
-    pass
 
 def free(station, type="bikes"):
     """
@@ -31,13 +35,14 @@ def free(station, type="bikes"):
     si type es "bikes" se devolvera el numero de bicis
     si type es "slots" se devolvera el numero de huecos
     """
-    pass
+    return int(station.find(type).text)
+
 
 
 
 def get_coords(station):
     """Devuelve las coordenadas (lat, long) de una estacion como floats"""
-    pass
+    return float(station.find('lat').text), float(station.find('long').text)
 
 
 
@@ -48,18 +53,27 @@ def nearest_station(coords, type):
     Si no existe ninguna estación o está a más de 1km se devolverá None
     """
 
-    # 1. http get de los datos del endpoint
-    # 2. parsear el xml
-    # 3. filtrar las estaciones (list comprehensio)
-    # 4. ordenar las estaciones por distancia
-    # 5. devolver la primera
-    pass
+    data = webclient.httpget(BICING_ENDPOINT)
+    xml = ET.ElementTree(ET.fromstring(data))
+    stations = [st for st in xml.findall(".//station")
+                if free(st, type) >= 1
+                and util.distance(coords, get_coords(st)) <= 1]
+    # sort by distance
+    stations = sorted(stations, key = lambda x: util.distance(coords, get_coords(x)))
+
+    # print results
+    #for st in stations:
+    #    print(st.find('street').text, util.distance(coords, get_coords(st)))
+    return stations[0] if stations else None
 
 
 
 if __name__ == '__main__':
-    # 1. read_coordinates()
-    # 2. obtener las estaciones mas cercanas
-    # 3. obtener las coordenadas de las estaciones
-    # 4. abrir el maps con util.maps()
-    pass
+    src, dst = read_coordinates()
+    src_station = nearest_station(src, "bikes")
+    dst_station = nearest_station(dst, "slots")
+
+    src_st_coords = get_coords(src_station)
+    dst_st_coords = get_coords(dst_station)
+
+    util.maps(src_st_coords, dst_st_coords)
