@@ -1,12 +1,7 @@
 import argparse
 import search
-import logging
 import gui
 
-
-#Configure logger options and format
-logging.basicConfig(filename='search.log', level=logging.DEBUG,\
-        format="%(asctime)s %(levelname)s: %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
 
 
 def _init_parser():
