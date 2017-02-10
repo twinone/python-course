@@ -1,7 +1,9 @@
-import util
-import webclient
 import sys
 import xml.etree.ElementTree as ET
+
+import webclient
+
+from maps import util
 
 COORDS_CAMPUS_NORD = (41.387453, 2.113686)
 COORDS_SAFA = (41.403618, 2.174361)

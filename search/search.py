@@ -1,8 +1,7 @@
+import os
+import re
 import urllib.request
 import webbrowser
-import re
-import os
-
 
 QUERY_URL = 'https://pixabay.com/en/photos/?q={0}&pagi={1}'
 
@@ -64,7 +63,6 @@ def save(key, l):
 
 from os import listdir
 from os.path import isfile, join
-import util
 
 HTML = """
 <html>
