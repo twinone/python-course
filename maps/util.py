@@ -1,5 +1,6 @@
 from math import cos, asin, sqrt
 import webbrowser
+import os
 
 def distance(a, b):
     """Get the distance between two coordinates in kilometers"""
@@ -28,7 +29,7 @@ def maps(a, b, filename="index.html", autoopen=True):
     with open(filename, "w") as text_file:
         text_file.write(text)
     if autoopen:
-        webbrowser.get("firefox").open("./"+filename)
+        webbrowser.open(os.path.realpath("./"+filename))
 
 def tuplestring(t):
     (a, b) = t

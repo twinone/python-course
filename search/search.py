@@ -81,7 +81,7 @@ def open_html(key):
     f = open("index.html", "w")
     f.write(content)
     f.close()
-    webbrowser.get("firefox").open("./index.html")
+    webbrowser.open(os.path.realpath("./index.html"))
 
 def do_search(key, num):
     res = getlinks_parser(key, num)
