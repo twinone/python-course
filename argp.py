@@ -3,8 +3,9 @@ import search
 import logging
 import gui
 
+
 #Configure logger options and format
-logging.basicConfig(filename='catties.log', level=logging.DEBUG,\
+logging.basicConfig(filename='search.log', level=logging.DEBUG,\
         format="%(asctime)s %(levelname)s: %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
 
 
@@ -17,7 +18,6 @@ def _init_parser():
     parser.add_argument("-n", "--num_results", type=int, help="Number of images to download")
 
 
-    parser.add_argument("-u", "--user_interface", action="store_true", help='Height of Cylinder')
     parser.add_argument("-l", "--log", action="store_true", help="Activate loggin")
     parser.add_argument("-c", "--console", action="store_true", help="Do not run UI")
 
@@ -33,12 +33,15 @@ def parse():
     #Get the data from the parser
     args = _init_parser()
 
-    if args.user_interface:
+    if not args.console:
         gui.open_ui()
         exit()
 
     key = args.keyword
     num = args.num_results
+
+    if not key: key = "kittens"
+    if not num: num = 5
 
     search.do_search(key, num)
 

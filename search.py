@@ -1,5 +1,5 @@
 import urllib.request
-import lxml.html
+import webbrowser
 import re
 import os
 
@@ -62,8 +62,31 @@ def save(key, l):
             os.makedirs(path)
         urllib.request.urlretrieve(x,  path + name)
 
+from os import listdir
+from os.path import isfile, join
+import util
+
+HTML = """
+<html>
+<body>
+{0}
+</body>
+</html>
+"""
+
+def open_html(key):
+    paths = ["./" + key + "/" + f for f in listdir(key) if isfile(join(key, f))]
+    content = ""
+    for p in paths:
+        content += """<img src="{0}" style="width:100%"></img><br><br> """.format(p)
+    html = HTML.format(content)
+    f = open("index.html", "w")
+    f.write(content)
+    f.close()
+    webbrowser.get("firefox").open("./index.html")
 
 def do_search(key, num):
     res = getlinks_parser(key, num)
     save(key, res)
+    open_html(key)
 
