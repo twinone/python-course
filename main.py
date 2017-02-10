@@ -39,7 +39,6 @@ def free(station, type="bikes"):
 
 
 
-
 def get_coords(station):
     """Devuelve las coordenadas (lat, long) de una estacion como floats"""
     return float(station.find('lat').text), float(station.find('long').text)
