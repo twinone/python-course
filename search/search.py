@@ -22,6 +22,7 @@ def query(s, p):
     q = '+'.join(s.split(' '))
     return QUERY_URL.format(q, p)
 
+
 def httpget(url):
     """De webclient.py. NO se pasa a string porque a veces nos interesa tener los datos binarios"""
     f = urllib.request.urlopen(url)
@@ -31,13 +32,14 @@ def httpget(url):
 def getlinks_parser(s, n):
     pass
 
-def save(key, l):
-   pass
 
+def save(key, l):
+    pass
 
 
 def open_html(key):
     pass
+
 
 def do_search(key, num):
     pass

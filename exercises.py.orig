@@ -6,11 +6,8 @@ Ejemplo:
 reverse("Hola")
 Devuelve "aloH"
 """
-
-
 def reverse(s):
-    if s == "":
-        return ""
+    if s == "": return ""
     return s[-1] + reverse(s[:-1])
 
 
@@ -21,6 +18,7 @@ def reverse2(s):
     return res
 
 
+
 """
 Ejercicio 2
 Dado un diccionario d, devolver True si existe la key k
@@ -29,10 +27,11 @@ Ejemplo:
 contains({"hola": 1}, "hola")
 Devuelve 1
 """
-
-
 def contains(d, k):
     pass
+
+
+
 
 
 """
@@ -43,11 +42,12 @@ Ejemplo:
 upperlower("Hola")
 Devuelve: (1, 3)
 """
-
-
 def upperlower(s):
     mayus = len([x for x in s if s.isupper()])
     pass
+
+
+
 
 
 """
@@ -64,11 +64,12 @@ XXX
 XX
 X
 """
-
-
 def pyramid(n):
     # codigo aqui
     pass
+
+
+
 
 
 """
@@ -80,13 +81,12 @@ Devuelve:
 "ohn oe"
 """
 
-
 def low(s):
-    if s == "":
-        return ""
+    if s == "": return ""
     c = s[0] if s[0].islower() else ''
     return c + low(s[1:])
     pass
+
 
 
 """
@@ -98,11 +98,12 @@ Devuelve 3
 toint("hola")
 Devuelve False
 """
-
-
 def toint(s):
     # codigo aqui
     pass
+
+
+
 
 
 """
@@ -113,11 +114,10 @@ letters("monty python")
 Devuelve:
 {'t': 2, 'h': 1, 'n': 2, 'p': 1, 'o': 2, 'm': 1, 'y': 2, ' ': 1}
 """
-
-
 def letters(s):
     # codigo aqui
     pass
+
 
 
 """
@@ -130,7 +130,6 @@ Devuelve:
 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 """
-
 
 def abc():
     # codigo aqui
@@ -145,8 +144,6 @@ Ejemplo:
 vowels("thequickbrownfoxjumpsoverthelazydog")
 Devuelve: 11
 """
-
-
 def vowels(s):
     # codigo aqui
     pass
@@ -160,8 +157,6 @@ listfilter([5,31,4,8,20])
 Devuelve
 [4, 8, 20]
 """
-
-
 def listfilter(l):
     # codigo aqui
     pass
@@ -185,8 +180,6 @@ Imprime:
 6 x 10 = 60
 
 """
-
-
 def tabla(n):
     # codigo aqui
     pass
@@ -199,8 +192,6 @@ Ejemplo:
 add3 = generate_addn(3)
 add3(5) #  devuelve 8
 """
-
-
 def generate_addn(n):
     # codigo aqui
     pass
@@ -217,11 +208,10 @@ Devuelve 3
 argcount([1,2,3])
 Devuelve 1
 """
-
-
 def argcount(*args):
     # codigo aqui
     pass
+
 
 
 """
@@ -236,8 +226,6 @@ q2
 p3
 q3
 """
-
-
 def printlist(n, l):
     # codigo aqui
     pass
@@ -255,8 +243,6 @@ gato = Animal("Gato", "Miau")
 gato.sonido()
 Imprime: "Soy un Gato y hago Miau"
 """
-
-
 class Animal:
     def __init__(self, n, s):
         # codigo aqui
@@ -283,3 +269,5 @@ imprima "Tengo 4 patas"
 """
 
 # codigo aqui
+
+

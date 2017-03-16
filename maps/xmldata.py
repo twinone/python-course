@@ -23,6 +23,4 @@ lat = float(xml.find("lat").text)
 long = float(xml.find("long").text)
 
 
-
 print((lat, long))
-

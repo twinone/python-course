@@ -28,10 +28,10 @@ def serve(ctype="application/json", content=DATA, addr=('0.0.0.0', 8080)):
     # create the server
     srv = socketserver.TCPServer(addr, Handler)
 
-
     print("serving at", addr)
     # infinite loop
     srv.serve_forever()
+
 
 if __name__ == '__main__':
     serve()

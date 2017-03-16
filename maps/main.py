@@ -40,11 +40,9 @@ def free(station, type="bikes"):
     return int(station.find(type).text)
 
 
-
 def get_coords(station):
     """Devuelve las coordenadas (lat, long) de una estacion como floats"""
     return float(station.find('lat').text), float(station.find('long').text)
-
 
 
 def nearest_station(coords, type):
@@ -60,13 +58,13 @@ def nearest_station(coords, type):
                 if free(st, type) >= 1
                 and util.distance(coords, get_coords(st)) <= 1]
     # sort by distance
-    stations = sorted(stations, key = lambda x: util.distance(coords, get_coords(x)))
+    stations = sorted(
+        stations, key=lambda x: util.distance(coords, get_coords(x)))
 
     # print results
-    #for st in stations:
+    # for st in stations:
     #    print(st.find('street').text, util.distance(coords, get_coords(st)))
     return stations[0] if stations else None
-
 
 
 if __name__ == '__main__':

@@ -1,0 +1,5 @@
+[cli]
+default_actions = *: ApplyPatchAction
+[python]
+bears = PEP8Bear
+files = **/*.py
